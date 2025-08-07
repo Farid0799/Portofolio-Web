@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mas Diraf - Junior UI UX Design</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3b82f6',
+                        secondary: '#8b5cf6',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+        }
+        
+        .project-card {
+            transition: all 0.3s ease;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .skill-pill {
+            transition: all 0.2s ease;
+        }
+        
+        .skill-pill:hover {
+            transform: scale(1.05);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+
+
+        .foto-presisi {
+        width: 300px;
+        height: 300px;
+        zoom: 1.1; /* Perbesar sedikit untuk fokus */
+        object-fit: cover;
+        object-position: right bottom; /* Fokus ke wajah & badan */
+        border-radius: 12px;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #3b82f6;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        html, body {
+            overflow-x: hidden;
+        }
+        /* ...existing styles... */
+    .navbar-gradient {
+        background: linear-gradient(90deg, #fceabb 0%, #f8c026 65%);
+    }
+    .slider-btn {
+        top: 60%; /* geser tombol slider lebih ke bawah agar tidak menutupi navbar */
+        /* atau bisa gunakan top: calc(50% + 60px); jika ingin lebih dinamis */
+    }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <!-- Navigation -->
+    <nav class="navbar-gradient shadow-sm fixed w-full z-10">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <span class="text-xl font-bold gradient-text">Mas Diraf</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="nav-link text-gray-700 hover:text-primary transition">Beranda</a>
+                    <a href="#about" class="nav-link text-gray-700 hover:text-primary transition">Tentang</a>
+                    <a href="#education" class="nav-link text-gray-700 hover:text-primary transition">Pendidikan</a>
+                    <a href="#skills" class="nav-link text-gray-700 hover:text-primary transition">Skill</a>
+                    <a href="#projects" class="nav-link text-gray-700 hover:text-primary transition">Pengalaman</a>
+                    <a href="#contact" class="nav-link text-gray-700 hover:text-primary transition">Kontak</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="menu-btn" class="text-gray-700 focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden hidden pb-4 px-4 bg-white shadow-lg">
+            <div class="flex flex-col space-y-3">
+                <a href="#home" class="text-gray-700 hover:text-primary transition py-2 border-b border-gray-100">Beranda</a>
+                <a href="#about" class="text-gray-700 hover:text-primary transition py-2 border-b border-gray-100">Tentang</a>
+                <a href="#education" class="text-gray-700 hover:text-primary transition py-2 border-b border-gray-100">Pendidikan</a>
+                <a href="#skills" class="text-gray-700 hover:text-primary transition py-2 border-b border-gray-100">Skill</a>
+                <a href="#projects" class="text-gray-700 hover:text-primary transition py-2 border-b border-gray-100">Pengalaman</a>
+                <a href="#contact" class="text-gray-700 hover:text-primary transition py-2">Kontak</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+        <div class="flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-10 md:mb-0">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">Hi, Saya <span class="gradient-text">Mas Diraf</span></h1>
+                <h2 class="text-2xl md:text-3xl font-semibold mb-6">Junior UI UX Design</h2>
+                <p class="text-gray-600 mb-8 max-w-lg text-lg">
+                    Saya Ihya Amrillah kalian bisa panggil saya Diraf, lulusan Teknik Informatika yang saat ini berfokus sebagai Junior UI/UX Designer. Saya memiliki ketertarikan dalam membuat tampilan dan pengalaman pengguna yang intuitif dan menarik, dengan menggunakan tools seperti Figma dan prinsip design thinking. Saya siap belajar dan berkembang dalam dunia desain digital untuk memberikan solusi yang berdampak bagi pengguna.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#contact" class="gradient-bg hover:opacity-90 text-white px-6 py-3 rounded-lg font-medium transition transform hover:-translate-y-1">
+                        Kontak Saya <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <div class="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white shadow-xl">
+                    <img src="C:\Users\ASUS\Documents\image\WhatsApp Image 2025-08-06 at 23.07.41.jpeg" alt="Foto wajah dan badan" class="foto-presisi">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-12">Tentang Saya</h2>
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/3 mb-8 md:mb-0 md:pr-8">
+                    <div class="bg-gray-100 p-6 rounded-xl">
+                        <img src="C:\Users\ASUS\Documents\image\WhatsApp Image 2025-08-06 at 23.07.42 (1).jpeg" alt="Foto wajah dan badan" class="foto-presisi"C:\Users\ASUS\Documents\image\WhatsApp Image 2025-08-06 at 23.07.41.jpeg" alt="Foto wajah dan badan" class="foto-presisi">
+                    </div>
+                </div>
+                <div class="md:w-2/3">
+                    <p class="text-gray-700 mb-6 text-lg">
+                        Perkenalkan saya Ihya Amrillah kalian bisa panggil saya Diraf, seorang lulusan Teknik Informatika yang memiliki minat besar di bidang UI/UX Design. Ketertarikan saya bermula dari keinginan untuk menciptakan solusi digital yang tidak hanya menarik secara visual, tetapi juga mudah digunakan dan menyenangkan bagi pengguna. Selama masa studi, saya aktif mengasah kemampuan desain.
+                    </p>
+                    <p class="text-gray-700 mb-6 text-lg">
+                        Sebagai Junior UI/UX Designer, saya terus belajar dan mengikuti perkembangan tren desain untuk meningkatkan kualitas karya saya. Saya percaya bahwa desain bukan hanya tentang estetika, tetapi bagaimana teknologi bisa dihadirkan secara humanis. Dengan semangat kolaboratif dan keinginan untuk berkembang, saya siap berkontribusi dalam tim untuk menciptakan pengalaman digital yang bermakna dan berdampak.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-12">Pendidikan</h2>
+            <div class="flex justify-center mb-12">
+                <div class="w-24 h-1 gradient-bg rounded-full"></div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Timeline Item 1 -->
+                <div class="relative pl-8 mb-8 timeline-item">
+                    <div class="absolute left-0 top-2 w-5 h-5 rounded-full gradient-bg border-4 border-white"></div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm">
+                        <h3 class="font-semibold text-xl mb-2">Universitas Ibn Khaldun Bogor</h3>
+                        <p class="text-gray-600 mb-2">Lulusan Sarjana Teknik Informatika IPK 3.22</p>
+                        <p class="text-gray-500 text-sm mb-2">2017 - 2024</p>
+                        <p>Saya adalah lulusan Sarjana Teknik Informatika dengan latar belakang teori dan praktik di bidang teknologi informasi. Selama studi, saya mempelajari Matematika Diskrit, Algoritma, Kalkulus, Dasar Pemrograman, Jaringan Komputer, serta Sistem Informasi Geografis (SIG). Saya terbiasa menggunakan tools seperti ArcGIS, QGIS, dan Mikrotik. Saya aktif dalam organisasi kemahasiswaan, untuk mengembangkan kemampuan komunikasi, kerja tim, dan kepemimpinan yang mendukung kesiapan saya di dunia profesional.</p>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Timeline Item 2 -->
+                <div class="relative pl-8 mb-8 timeline-item">
+                    <div class="absolute left-0 top-2 w-5 h-5 rounded-full gradient-bg border-4 border-white"></div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm">
+                        <h3 class="font-semibold text-xl mb-2">SMK Pelita 2 Ciampea</h3>
+                        <p class="text-gray-600 mb-2">Jurusan Teknik Komputer Jaringan</p>
+                        <p class="text-gray-500 text-sm mb-2">2014 - 2017</p>
+                        <p>Saya lulusan SMK Teknik Komputer dan Jaringan (TKJ) dengan keterampilan instalasi, konfigurasi, dan perawatan jaringan. Selama studi, saya mempelajari jaringan dasar, sistem operasi, perangkat keras, server, keamanan jaringan, pemasangan kabel LAN, setting router, Mikrotik, serta instalasi OS Windows/Linux. Memiliki dasar pemrograman dan troubleshooting, serta terbiasa bekerja tim maupun mandiri melalui PKL dan proyek sekolah, serta siap berkembang di dunia IT.</p>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-12">Skill</h2>
+            <div class="flex justify-center mb-12">
+                <div class="w-24 h-1 gradient-bg rounded-full"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-xl shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center mr-3">
+                            <i class="fas fa-laptop-code text-primary text-xl"></i>
+                        </div>
+                        <h3 class="font-semibold text-xl">Web Programming</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-pill bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">PHP</span>
+                        <span class="skill-pill bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">HTML5</span>
+                        <span class="skill-pill bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">CSS3</span>
+                        <span class="skill-pill bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">JavaScript</span>
+                        <span class="skill-pill bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">C++</span>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 rounded-lg bg-green-100 flex items-center justify-center mr-3">
+                            <i class="fas fa-database text-green-600 text-xl"></i>
+                        </div>
+                        <h3 class="font-semibold text-xl">Database & Tools</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-pill bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">MySQL</span>
+                        <span class="skill-pill bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">PostgreSQL</span>
+                        <span class="skill-pill bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">MongoDB</span>
+                        <span class="skill-pill bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Firebase Realtime</span>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 rounded-lg bg-purple-100 flex items-center justify-center mr-3">
+                            <i class="fas fa-network-wired text-secondary text-xl"></i>
+                        </div>
+                        <h3 class="font-semibold text-xl">Network & Topologi Tools</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-pill bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">Mikrotik</span>
+                        <span class="skill-pill bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">Linux</span>
+                        <span class="skill-pill bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">Netstat</span>
+                        <span class="skill-pill bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">Visio/Draw.io</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-10 grid md:grid-cols-2 gap-8">
+                <div class="bg-white p-6 rounded-xl shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 rounded-lg bg-red-100 flex items-center justify-center mr-3">
+                            <i class="fas fa-palette text-red-600 text-xl"></i>
+                        </div>
+                        <h3 class="font-semibold text-xl">Design Tools</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-pill bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm">Figma</span>
+                        <span class="skill-pill bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm">Adobe Photoshop</span>
+                        <span class="skill-pill bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm">Adobe Lightroom</span>
+                        <span class="skill-pill bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm">CorelDraw</span>
+                        <span class="skill-pill bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm">Canva</span>
+                    </div>
+                </div>
+                 <div class="bg-white p-6 rounded-xl shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 rounded-lg bg-yellow-100 flex items-center justify-center mr-3">
+                            <i class="fas fa-map text-yellow-600 text-xl"></i>
+                        </div>
+                        <h3 class="font-semibold text-xl">Geo Software & Tools</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-pill bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm">ArcGIS</span>
+                        <span class="skill-pill bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm">QGIS</span>
+                        <span class="skill-pill bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm">GEE</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+    <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl font-bold text-center mb-12">Pengalaman Kerja</h2>
+        <div class="relative" style="z-index:1;">
+            <!-- Slider Controls (Kiri) -->
+            <button id="prev-experience" class="slider-btn absolute left-0 transform -translate-y-1/2 bg-white border border-gray-300 rounded-full p-2 shadow hover:bg-gray-100 z-10">
+                <i class="fas fa-chevron-left text-primary"></i>
+            </button>
+            <!-- Slider -->
+            <div id="experience-slider" class="flex transition-transform duration-500" style="width: 200%; max-width: 100%;">
+                <!-- Slide 1 (Experience 1-3) -->
+                <div class="flex flex-col gap-8 w-full min-w-full">
+                    <!-- Experience 1 -->
+                    <div class="flex flex-col md:flex-row items-center bg-gray-50 rounded-xl shadow-sm p-6 max-w-[740px] md:max-w-[740px] mx-auto">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/6c4fa7d6-92dc-4a9e-bff8-e5552c742c6d.png" alt="Sentiment Analysis Dashboard" class="w-32 h-32 object-cover rounded-lg mb-4 md:mb-0 md:mr-6">
+                        <div>
+                            <h3 class="font-bold text-xl mb-2">Geo Surveyor, Kelurahan Tegal Gundil Kota Bogor</h3>
+                            <p class="text-gray-600 mb-2">Saya pernah menjalani magang sebagai Geo Surveyor, dengan tugas melakukan survei titik dan batas wilayah Kelurahan Tegal Gundil, termasuk jalan, rumah, dan badan air. Hasil survei diolah menjadi peta topografi, serta dikembangkan menjadi sistem informasi geografis (SIG) sederhana yang memuat data fasilitas kelurahan seperti sekolah, puskesmas, tempat ibadah, dan lingkungan usaha.</p>
+                            <p class="text-sm text-gray-500">Januari - Maret 2021</p>
+                        </div>
+                    </div>
+                    <!-- Experience 2 -->
+                    <div class="flex flex-col md:flex-row items-center bg-gray-50 rounded-xl shadow-sm p-6 max-w-[740px] md:max-w-[740px] mx-auto">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/3c91f5e5-6b0f-4494-8657-36bb4794fc36.png" alt="E-Commerce Platform" class="w-32 h-32 object-cover rounded-lg mb-4 md:mb-0 md:mr-6">
+                        <div>
+                            <h3 class="font-bold text-xl mb-2">IT Staff, KPU Kota Bogor</h3>
+                            <p class="text-gray-600 mb-2">Saya bekerja sebagai IT Staff di KPU Kota Bogor, dengan tugas membuat katalog dan konten media kegiatan, serta menyusun peta hasil rekapitulasi pemilu legislatif untuk keperluan publikasi informasi.</p>
+                            <p class="text-sm text-gray-500">Januari - April 2023</p>
+                        </div>
+                    </div>
+                    <!-- Experience 3 -->
+                   <div class="flex flex-col md:flex-row items-center bg-gray-50 rounded-xl shadow-sm p-6 max-w-[740px] md:max-w-[740px] mx-auto">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/3c91f5e5-6b0f-4494-8657-36bb4794fc36.png" alt="E-Commerce Platform" class="w-32 h-32 object-cover rounded-lg mb-4 md:mb-0 md:mr-6">
+                        <div>
+                            <h3 class="font-bold text-xl mb-2">IT Network Onsite, PT. Metrasat Bogor</h3>
+                            <p class="text-gray-600 mb-2">Saya mengerjakan projek sebagai IT Network Onsite, dengan tugas pengecekan jaringan toko retail minimarket, penggantian modem dan SIM card rusak, serta melakukan ping server dengan ip toko dengan mikrotik dan router agar toko berjalan secara online untuk area Jabodetabek. setelah itu melakukan penyusunan laporan dan dokumentasi perbaikan.</p>
+                            <p class="text-sm text-gray-500">Oktober - Desember 2024</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Slide 2 (Experience 4-6) -->
+                <div class="flex flex-col gap-8 w-full min-w-full">
+                    <!-- Experience 4 -->
+                   <div class="flex flex-col md:flex-row items-center bg-gray-50 rounded-xl shadow-sm p-6 max-w-[740px] md:max-w-[740px] mx-auto">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/3c91f5e5-6b0f-4494-8657-36bb4794fc36.png" alt="E-Commerce Platform" class="w-32 h-32 object-cover rounded-lg mb-4 md:mb-0 md:mr-6">
+                        <div>
+                            <h3 class="font-bold text-xl mb-2">IT Support, PT. Amindoway Jakarta</h3>
+                            <p class="text-gray-600 mb-2">Saya bekerja sebagai IT Support pengganti, Melakukan pekerjaan pendataan laporan kerusakan perangkat komputer dari karyawan, melakukan perbaikan printer, telepon, jaringan, dan perangkat lunak. Selain itu, saya memastikan seluruh perangkat kerja dapat terhubung dengan jaringan dan baik digunakan secara online untuk mendukung kelancaran operasional kantor.</p>
+                            <p class="text-sm text-gray-500">Januari - Februari 2024</p>
+                        </div>
+                    </div>
+                    <!-- Experience 5 -->
+                    <div class="flex flex-col md:flex-row items-center bg-gray-50 rounded-xl shadow-sm p-6 max-w-[740px] md:max-w-[740px] mx-auto">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/3c91f5e5-6b0f-4494-8657-36bb4794fc36.png" alt="E-Commerce Platform" class="w-32 h-32 object-cover rounded-lg mb-4 md:mb-0 md:mr-6">
+                        <div>
+                            <h3 class="font-bold text-xl mb-2">Freelance Analysis Data Academic</h3>
+                            <p class="text-gray-600 mb-2">Bertugas menganalisis data penelitian akademik, mulai dari pengolahan data mentah, pemilihan metode statistik yang sesuai, hingga penyusunan hasil analisis dalam bentuk tabel, grafik, dan interpretasi. Menggunakan perangkat seperti SPSS, Excel, atau Geoda untuk mendukung kebutuhan analisis kuantitatif maupun kualitatif. Bekerja sama dengan mahasiswa, dosen, atau peneliti dalam membantu penyusunan laporan atau jurnal ilmiah secara profesional dan sesuai standar akademik.</p>
+                            <p class="text-sm text-gray-500">2024 - Present</p>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <!-- Slider Controls (Kanan) -->
+            <button id="next-experience" class="slider-btn absolute right-0 transform -translate-y-1/2 bg-white border border-gray-300 rounded-full p-2 shadow hover:bg-gray-100 z-10">
+                <i class="fas fa-chevron-right text-primary"></i>
+            </button>
+        </div>
+    </div>
+</section>
+<script>
+    // Slider logic for experience cards (vertical list per slide)
+    const slider = document.getElementById('experience-slider');
+    const slides = slider.children.length;
+    let currentSlide = 0;
+
+    function updateSlider() {
+        slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+        // Sembunyikan slide lain dengan opacity dan pointer-events
+        for (let i = 0; i < slides; i++) {
+            slider.children[i].style.opacity = (i === currentSlide) ? '1' : '0';
+            slider.children[i].style.pointerEvents = (i === currentSlide) ? 'auto' : 'none';
+        }
+    }
+
+    // Inisialisasi tampilan slide
+    updateSlider();
+
+    document.getElementById('prev-experience').onclick = () => {
+        if (currentSlide > 0) {
+            currentSlide--;
+            updateSlider();
+        }
+    };
+    document.getElementById('next-experience').onclick = () => {
+        if (currentSlide < slides - 1) {
+            currentSlide++;
+            updateSlider();
+        }
+    };
+</script>
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-6">Hubungi Saya</h2>
+            <p class="text-lg text-gray-600 text-center max-w-2xl mx-auto mb-12">
+                Informasi lebih lanjut anda bisa hubungi saya atau tinggalkan pesan yang ingin anda sampaikan, terima kasih.
+            </p>
+            <div class="flex justify-center mb-12">
+                <div class="w-24 h-1 gradient-bg rounded-full"></div>
+            </div>
+            
+            <div class="flex flex-col md:flex-row gap-8">
+                <div class="md:w-1/2">
+                    <div class="bg-white p-8 rounded-xl shadow-sm h-full">
+                        <h3 class="text-2xl font-semibold mb-6">Info Kontak</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <div class="w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center mr-4">
+                                        <i class="fas fa-map-marker-alt text-primary text-lg"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-gray-900">Lokasi</h4>
+                                    <p class="text-gray-600">Bogor, Jawa Barat, Indonesia</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <div class="w-10 h-10 rounded-lg bg-purple-100 flex items-center justify-center mr-4">
+                                        <i class="fas fa-envelope text-secondary text-lg"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-gray-900">Email</h4>
+                                    <p class="text-gray-600">ihyaamrillah07@gmail.com</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <div class="w-10 h-10 rounded-lg bg-green-100 flex items-center justify-center mr-4">
+                                        <i class="fas fa-phone text-green-600 text-lg"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-gray-900">Telepon</h4>
+                                    <p class="text-gray-600">+62 858 #### ####</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8">
+                            <h4 class="font-medium text-gray-900 mb-4">Terhubung dengan saya</h4>
+                            <div class="flex space-x-4">
+                                <a href="https://www.linkedin.com/in/ihya-amrillah-faridudin-al-shidqi/" target="blank" class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 hover:bg-blue-200 transition">
+                                    <i class="fab fa-linkedin-in text-lg"></i>
+                                </a>
+                                <a href="https://www.facebook.com/IhyaAmrillahFaridudin" target="_blank" class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 hover:bg-blue-200 transition">
+                                    <i class="fab fa-facebook text-lg"></i>
+                                </a>
+                                <a href="https://www.instagram.com/mas_diraf" target="_blank" class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 hover:bg-blue-200 transition">
+                                    <i class="fab fa-instagram text-lg"></i>
+                                </a>
+                                <a href="https://www.tiktok.com/@masdiraf" target="_blank" class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 hover:bg-blue-200 transition">
+                                    <i class="fab fa-tiktok text-lg"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/2">
+                    <div class="bg-white p-8 rounded-xl shadow-sm h-full">
+                        <h3 class="text-2xl font-semibold mb-6">Kirim Pesan</h3>
+                        <form class="space-y-6">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Nama</label>
+                                <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary outline-none transition">
+                            </div>
+                            
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                                <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary outline-none transition">
+                            </div>
+                            
+                            <div>
+                                <label for="subject" class="block text-sm font-medium text-gray-700 mb-1">Subjek</label>
+                                <input type="text" id="subject" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary outline-none transition">
+                            </div>
+                            
+                            <div>
+                                <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Pesan</label>
+                                <textarea id="message" rows="5" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary outline-none transition"></textarea>
+                            </div>
+                            
+                            <div>
+                                <button type="submit" class="gradient-bg hover:opacity-90 text-white px-6 py-3 rounded-lg font-medium transition transform hover:-translate-y-1 w-full">
+                                    Kirim <i class="fas fa-paper-plane ml-2"></i>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-8">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <span class="text-xl font-bold gradient-text">Mas Diraf</span>
+                    <p class="mt-2 text-sm">Junior UI UX Design</p>
+                </div>
+                <div class="flex flex-col items-center md:items-end">
+                    <div class="flex space-x-6 mb-4">
+                    </div>
+                    <p class="text-sm">© 2025 Mas Diraf. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                mobileMenu.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
